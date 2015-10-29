@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>14 Dimensiones</title>
+		
+		<!--Hojas de estilo -->
+		<style type="text/css">
+			body,html{
+				background:#000;
+				margin:0;
+				padding:0;
+			}
+			
+			header{
+				display:block;
+				margin: 0 auto;
+				width:365px;
+			}
+			
+			#e1,#e2{
+				background:#0080ff;
+				display:block;
+				height:100px;
+				margin:20px auto;
+				width:400px;
+			}
+			
+			#e1{
+				background:#ff0040;
+				height:150px;
+			}
+			
+			#e2{
+				padding:15px;
+				border-radius:60px 0 60px 0;
+			}
+			
+			p{
+				margin-left:10px;
+			}
+			
+		</style>
+		
+		<!--Scripts Aca -->
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js">		
+		</script>
+		<script type="text/javascript">
+			$(document).on("ready",function(){
+				//saca el ancho de la imagen, sin unidades(px, em , etc)
+				console.log($('header img').width());
+				//saca el alto de la imagen
+				console.log($('header img').height());
+				//este si nos indica el alto de la imagen con unidades (px)
+				console.log($('header img').css('height'));
+				//redimensiona el ancho de la imagen 100px, el alto se autoredimensiona
+				//$('header img').width(100);
+				$('header img').height(100);
+				//nos indica las coordenadas (x,y)/(left,top) del elemento, sin contar padding, border, o margin de los elementos que contengan a este elemento 
+				var pos=$('#e2 p').position();
+				console.log("Posicion left: "+pos.left+" Posicion top: "+pos.top);
+				//indica las coordenadas, pero este si tiene en cuenta el padding, etc, de los objetos que contiene al elemento. es relativo.
+				var pos2=$('#e2 p').offset();
+				console.log("Posicion left: "+pos2.left+" Posicion top: "+pos2.top);
+				
+			});
+		
+		</script>
+		
+	</head>
+	<body>
+		<header>
+			<img src="Grimlock1.jpg" alt="Imagen_transformer"/>			
+		</header>
+		
+		<div id="e1">
+		</div>
+		
+		<div id="e2">
+			<p>Hola amigos!</p>
+		</div>
+	</body>
+</html>
